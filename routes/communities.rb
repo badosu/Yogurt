@@ -33,9 +33,9 @@ class Yogurt
       r.get('edit') { :edit }
 
       r.put do
-        @community.set_fields(r.params, %w[name description private])
+        attributes = %w[name description private]
 
-        if @community.save
+        if @community.update_fields(r.params, attributes)
           r.redirect '/communities'
         else
           :edit
