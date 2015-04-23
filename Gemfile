@@ -18,7 +18,7 @@ gem 'better_errors', group: :development
 gem 'binding_of_caller', group: :development
 
 # Roda: Routing Tree Web Framework Toolkit
-# => https://github.com/jeremyyogurt/roda
+# => https://github.com/jeremyevans/roda
 #
 # Unicorn: Rack HTTP server for fast clients and Unix
 # => http://unicorn.bogomips.org/
@@ -32,7 +32,7 @@ gem 'binding_of_caller', group: :development
 #
 #
 # Sequel: The Database Toolkit for Ruby
-# => http://sequel.jeremyyogurt.net
+# => http://sequel.jeremyevans.net
 #
 #
 # Rake: A make-like build utility for Ruby
@@ -40,4 +40,4 @@ gem 'binding_of_caller', group: :development
 #
 # Rack::Unreloader: Rack Application that reloads application files if
 # changed, unloading constants first
-# => https://github.com/jeremyyogurt/rack-unreloader
+# => https://github.com/jeremyevans/rack-unreloader

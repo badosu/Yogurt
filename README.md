@@ -72,6 +72,9 @@ Configure
 Run `cp .env{-sample,} && $EDITOR .env` to setup and configure the
 application locally.
 
+Additionally you can change now all references from Yogurt to your project
+name, see [this script](https://gist.github.com/badosu/ca61b6bfbb198386fe9b).
+
 Run
 ---
 
