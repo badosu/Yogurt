@@ -1,0 +1,21 @@
+<div class="form-group <%= 'has-error' if @community.errors[:name] %>">
+  <label for="name">Name</label>
+  <input type="text" name='name' placeholder="Name of community" value="<%= @community.name %>"
+         class="form-control">
+   <% if @community.errors[:name] %>
+     <p class="help-block"><%= @community.errors[:name].join(', ') %></p>
+   <% end %>
+</div>
+
+<div class="form-group">
+  <label for="description">Description</label>
+  <input type="text" class="form-control" name='description' placeholder="Description"
+         value="<%= @community.description %>">
+</div>
+
+<div class="checkbox">
+  <label>
+    <input name='private' type="hidden" value="">
+    <input name='private' type="checkbox" <%= "checked='checked'" if @community.private %>> Private
+  </label>
+</div>

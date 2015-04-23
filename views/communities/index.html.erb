@@ -1,0 +1,16 @@
+<ul>
+  <% @communities.each do |c| %>
+    <li>
+      <%= c.name %>
+      <%= " (private)" if c.private %>
+
+      <a class="btn btn-xs btn-warning" href="/communities/<%= c.id %>/edit">Edit</a>
+      <form action='/communities/<%= c.id %>' method='POST' id='delete-community' class='inline'>
+        <input type='hidden' name='_method' value='DELETE'>
+        <button type="submit" class="btn btn-xs btn-danger">Delete</button>
+      </form>
+    </li>
+  <% end %>
+</ul>
+
+<a class="btn btn-primary" href="/communities/new">Create community</a>

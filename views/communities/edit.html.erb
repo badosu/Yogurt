@@ -1,0 +1,7 @@
+<form action='/communities/<%= @community.id %>' method='POST' id='edit-community'>
+  <input type='hidden' name='_method' value='PUT'>
+
+  <%= render :_form %>
+
+  <button type="submit" class="btn btn-default">Save</button>
+</form>
