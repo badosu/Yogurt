@@ -7,6 +7,16 @@ applications that want to leverage a minimal ruby stack.
 Just clone the repo, remove `.git` and start your application with a
 minimal, but with sensible (in my opinion) defaults, ruby web application.
 
+### Rationale
+
+I like minimal web applications, but everytime I started a new project I had
+to re-read documentation and setup the infrastructure from scratch all over
+again.
+
+This bootstrap has the goal of being a middle ground where you can have some
+sane defaults so that you can be productive from the start while mantaining
+lightweightness.
+
 ### Disclaimer
 
 This application uses the latest MRI without concern for
