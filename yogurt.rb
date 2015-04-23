@@ -7,11 +7,12 @@ class Yogurt < Roda
   plugin :all_verbs
   plugin :symbol_views
   plugin :view_options
-  plugin :render, ext: 'html.erb', layout: './layout'
+  plugin :render, ext: 'html.erb', layout: '/layout'
   plugin :static, ["/images", "/fonts"]
   plugin :assets,  js: { yogurt: ["jquery-2.1.3.js", "bootstrap.js"] }
   plugin :assets, css: {  home: ["bootstrap.css", "jumbotron.css"],
                          yogurt: ["bootstrap.css", "yogurt.css"] }
+  plugin(:not_found) { view '/http_404' }
 
   if env.development?
     require 'better_errors'
@@ -21,6 +22,16 @@ class Yogurt < Roda
     BetterErrors.application_root = __dir__
   else
     compile_assets
+
+    plugin :error_handler do |e|
+      case e
+      when Sequel::NoMatchingRow
+        response.status = 404
+        view '/http_404'
+      else
+        view '/http_500'
+      end
+    end
   end
 
   route do |r|
