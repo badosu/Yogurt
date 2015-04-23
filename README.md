@@ -82,3 +82,13 @@ Run `bin/bs bundle exec unicorn -c unicorn.conf` to run the application
 locally (without `bundle exec` if you're using gst).
 
 Visit `/communities`.
+
+Structure
+---------
+
+- **Configuration**: `yorgut.rb`
+- **ORM Configuration**: `models.rb`
+- **Models**: `models/\*.rb`
+- **Routes**: `routes/\*.rb`
+- **Assets**: `./assets`
+- **Views**: `./views`

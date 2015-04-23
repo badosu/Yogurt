@@ -8,10 +8,12 @@ class Yogurt < Roda
   plugin :symbol_views
   plugin :view_options
   plugin :render, ext: 'html.erb', layout: '/layout'
-  plugin :static, ["/images", "/fonts"]
-  plugin :assets,  js: { yogurt: ["jquery-2.1.3.js", "bootstrap.js"] }
-  plugin :assets, css: {  home: ["bootstrap.css", "jumbotron.css"],
-                         yogurt: ["bootstrap.css", "yogurt.css"] }
+  plugin :static, %w[/images /fonts]
+  plugin :multi_route
+  plugin :assets, group_subdirs: false,
+         css: { home:   %w[lib/bootstrap.css jumbotron.css],
+                yogurt: %w[lib/bootstrap.css yogurt.css] },
+         js:  { yogurt: %w[lib/jquery-2.1.3.js lib/bootstrap.js] }
   plugin(:not_found) { view '/http_404' }
 
   if env.development?
@@ -37,58 +39,11 @@ class Yogurt < Roda
   route do |r|
     r.root { render(:index) }
 
-    r.on 'communities' do
-      set_view_subdir 'communities'
-
-      r.is do
-        @communities = Community.order(Sequel.desc(:created_at)).all
-
-        view :index
-      end
-
-      r.is 'new' do
-        @community = Community.new
-
-        r.get do
-          view :new
-        end
-
-        r.post do
-          @community.set_fields(r.params, %w[name description private])
-
-          if @community.save
-            r.redirect '/communities'
-          else
-            view :new
-          end
-        end
-      end
-
-      r.on ':id' do |id|
-        @community = Community.with_pk!(id.to_i)
-
-        r.get('edit') do
-          view :edit
-        end
-
-        r.put do
-          @community.set_fields(r.params, %w[name description private])
-
-          if @community.save
-            r.redirect '/communities'
-          else
-            view :edit
-          end
-        end
-
-        r.delete do
-          @community.delete
-
-          r.redirect '/communities'
-        end
-      end
-    end
+    r.multi_route
 
     r.assets
   end
 end
+
+Unreloader.require('routes'){}
+Unreloader.record_split_class(__FILE__, 'routes')
