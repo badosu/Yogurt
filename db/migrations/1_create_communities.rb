@@ -6,7 +6,7 @@ Sequel.migration do
       column :name,        String,    null: false
       column :description, String
       column :private,     TrueClass, default: false
-      column :created_at,  DateTime
+      column :created_at,  DateTime,  null: false
       column :updated_at,  DateTime
     end
   end
