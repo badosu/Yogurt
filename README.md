@@ -106,3 +106,4 @@ Structure
 - **Routes**: `routes/\*.rb`
 - **Assets**: `./assets`
 - **Views**: `./views`
+- **Migrations**: `./db/migrations`
