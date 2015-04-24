@@ -13,6 +13,9 @@ gem 'sequel'
 gem 'rake'
 gem 'rack-unreloader'
 
+# gem 'sequel-pg', require: 'sequel'
+gem 'sqlite3'
+
 gem 'pry', group: :development
 gem 'better_errors', group: :development
 gem 'binding_of_caller', group: :development

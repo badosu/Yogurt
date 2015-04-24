@@ -82,13 +82,17 @@ Configure
 Run `cp .env{-sample,} && $EDITOR .env` to setup and configure the
 application locally.
 
+Setup your database, or do nothing if you're using `.env-sample`.
+
+Create tables and seeds: `bin/bs bundle exec rake db:migrate db:seed`
+
 Additionally you can change now all references from Yogurt to your project
 name, see [this script](https://gist.github.com/badosu/ca61b6bfbb198386fe9b).
 
 Run
 ---
 
-Run `bin/bs bundle exec unicorn -c unicorn.conf` to run the application
+Execute `bin/bs bundle exec unicorn -c unicorn.conf` to run the application
 locally (without `bundle exec` if you're using gst).
 
 Visit `/communities`.

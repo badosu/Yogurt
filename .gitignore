@@ -1,3 +1,4 @@
 public/assets
 tags
 .env
+db.sqlite

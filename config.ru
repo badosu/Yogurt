@@ -1,8 +1,5 @@
 require './lib/env'
-require 'rack/unreloader'
-
-Unreloader = Rack::Unreloader.new(reload: env.development?,
-                                  subclasses: %w'Roda Sequel::Model'){ Yogurt }
+require './lib/unreloader'
 
 Unreloader.require './models.rb'
 Unreloader.require './yogurt.rb'
