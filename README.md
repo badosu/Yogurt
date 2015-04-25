@@ -100,7 +100,7 @@ Visit `/communities`.
 Structure
 ---------
 
-- **Configuration**: `yorgut.rb`
+- **Configuration**: `yogurt.rb`
 - **ORM Configuration**: `models.rb`
 - **Models**: `models/\*.rb`
 - **Routes**: `routes/\*.rb`
