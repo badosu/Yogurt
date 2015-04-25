@@ -10,8 +10,8 @@ class Yogurt
       end
 
       r.post do
-        attributes = %w[name description private]
-        @community = Community.new.set_fields(r.params, attributes)
+        fields = %w[name description private]
+        @community = Community.new.set_fields(r.params, fields)
 
         if @community.save
           r.redirect '/communities'
@@ -24,28 +24,30 @@ class Yogurt
     r.get 'new' do
       @community = Community.new
 
-      r.get { :new }
+      :new
     end
 
-    r.on ':id' do |id|
+    r.on :id do |id|
       @community = Community.with_pk!(id.to_i)
 
       r.get('edit') { :edit }
 
-      r.put do
-        attributes = %w[name description private]
+      r.is do
+        r.put do
+          fields = %w[name description private]
 
-        if @community.update_fields(r.params, attributes)
-          r.redirect '/communities'
-        else
-          :edit
+          if @community.update_fields(r.params, fields)
+            r.redirect '/communities'
+          else
+            :edit
+          end
         end
-      end
 
-      r.delete do
-        @community.delete
+        r.delete do
+          @community.delete
 
-        r.redirect '/communities'
+          r.redirect '/communities'
+        end
       end
     end
   end
