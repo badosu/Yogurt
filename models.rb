@@ -1,7 +1,7 @@
 require 'sequel'
 require 'logger'
 require './lib/env'
-require './lib/unreloader'
+require './config/unreloader'
 
 DB = Sequel.connect(ENV['DATABASE_URL']).tap do |config|
   config.loggers << Logger.new($stdout)

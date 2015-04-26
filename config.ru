@@ -1,5 +1,5 @@
 require './lib/env'
-require './lib/unreloader'
+require './config/unreloader'
 
 Unreloader.require './models.rb'
 Unreloader.require './yogurt.rb'
