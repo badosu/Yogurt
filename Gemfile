@@ -9,6 +9,9 @@ gem 'tilt'
 gem 'yuicompressor'
 
 gem 'sequel'
+gem 'sequel_secure_password'
+
+gem 'warden'
 
 gem 'rake'
 gem 'rack-unreloader'
