@@ -4,11 +4,15 @@ class Yogurt
       r.post do
         env['warden'].authenticate!
 
+        flash[:success] = "You are logged in"
+
         r.redirect session[:return_to] || '/communities'
       end
 
       r.delete do
         env['warden'].logout
+
+        flash[:success] = "You are logged out"
 
         r.redirect '/user_sessions/new'
       end
@@ -21,6 +25,8 @@ class Yogurt
     r.is 'unauthenticated' do
       session[:return_to] = env['warden.options'][:attempted_path]
       response.status = 403
+
+      flash[:danger] = "Could not authenticate"
 
       render '/user_sessions/new'
     end

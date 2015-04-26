@@ -42,6 +42,12 @@
         <h3 class="text-muted">Project name</h3>
       </div>
 
+      <% flash.each do |kind, message| %>
+        <div class='alert alert-<%= kind %>' role='alert'>
+          <p> <%= message %> </p>
+        </div>
+      <% end %>
+
       <%= yield %>
 
       <footer class="footer">
