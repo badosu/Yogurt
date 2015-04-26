@@ -1,4 +1,5 @@
 require 'roda'
+require './config/warden'
 
 class Yogurt < Roda
   use Rack::Session::Cookie, secret: ENV['SECRET']
@@ -12,9 +13,16 @@ class Yogurt < Roda
   plugin :multi_route
   plugin :assets, group_subdirs: false,
          css: { home:   %w[lib/bootstrap.css jumbotron.css],
-                yogurt: %w[lib/bootstrap.css yogurt.css] },
+                yogurt: %w[lib/bootstrap.css yogurt.css signin.css] },
          js:  { yogurt: %w[lib/jquery-2.1.3.js lib/bootstrap.js] }
   plugin(:not_found) { view '/http_404' }
+
+  use Warden::Manager do |manager|
+    manager.scope_defaults :default,
+      strategies: [:password],
+      action: 'user_sessions/unauthenticated'
+    manager.failure_app = self
+  end
 
   if env.development?
     require 'better_errors'
@@ -47,3 +55,4 @@ end
 
 Unreloader.require('routes'){}
 Unreloader.record_split_class(__FILE__, 'routes')
+Unreloader.record_split_class(__FILE__, 'config/warden')

@@ -2,6 +2,8 @@ class Yogurt
   route 'communities' do |r|
     set_view_subdir 'communities'
 
+    env['warden'].authenticate!
+
     r.is do
       r.get do
         @communities = Community.order(Sequel.desc(:created_at)).all
