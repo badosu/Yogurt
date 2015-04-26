@@ -107,3 +107,9 @@ Structure
 - **Assets**: `./assets`
 - **Views**: `./views`
 - **Migrations**: `./db/migrations`
+
+Examples
+--------
+
+- [Adding Authentication](https://github.com/badosu/Yogurt/wiki/Example:-Adding-authentication)
+- [Adding flash messages](https://github.com/badosu/Yogurt/commit/8ef447eeb501e797e6f0d5ba22fcbfe1bed67ad0)
