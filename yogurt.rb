@@ -8,6 +8,7 @@ class Yogurt < Roda
   plugin :all_verbs
   plugin :symbol_views
   plugin :view_options
+  plugin :flash
   plugin :render, ext: 'html.erb', layout: '/layout'
   plugin :static, %w[/images /fonts]
   plugin :multi_route
