@@ -18,6 +18,8 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     rack (1.6.0)
+    rack-contrib (1.2.0)
+      rack (>= 0.9.1)
     rack-unreloader (1.3.0)
     raindrops (0.13.0)
     rake (10.4.2)
@@ -45,6 +47,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   pry
+  rack-contrib
   rack-unreloader
   rake
   roda

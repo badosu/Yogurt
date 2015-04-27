@@ -10,7 +10,7 @@ class Yogurt
       end
 
       r.delete do
-        env['warden'].logout
+        env['warden'].logout if env['warden'].authenticated?
 
         flash[:success] = "You are logged out"
 

@@ -4,6 +4,7 @@ ruby '2.2.1'
 
 gem 'roda'
 gem 'unicorn'
+gem 'rack-contrib'
 
 gem 'tilt'
 gem 'yuicompressor'

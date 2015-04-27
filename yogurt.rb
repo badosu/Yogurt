@@ -1,7 +1,9 @@
 require 'roda'
+require 'rack/contrib'
 require './config/warden'
 
 class Yogurt < Roda
+  use Rack::Cookies
   use Rack::Session::Cookie, secret: ENV['SECRET']
   use Rack::MethodOverride
 
@@ -20,7 +22,7 @@ class Yogurt < Roda
 
   use Warden::Manager do |manager|
     manager.scope_defaults :default,
-      strategies: [:password],
+      strategies: [:password, :remember_me_token],
       action: 'user_sessions/unauthenticated'
     manager.failure_app = self
   end
