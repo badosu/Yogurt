@@ -92,7 +92,7 @@ name, see [this script](https://gist.github.com/badosu/ca61b6bfbb198386fe9b).
 Run
 ---
 
-Execute `bin/bs bundle exec unicorn -c unicorn.conf` to run the application
+Execute `bin/bs bundle exec unicorn -c config/unicorn.rb` to run the application
 locally (without `bundle exec` if you're using gst).
 
 Visit `/communities`.
