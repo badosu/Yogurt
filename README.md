@@ -113,3 +113,4 @@ Examples
 - [Adding Authentication](https://github.com/badosu/Yogurt/wiki/Example:-Adding-authentication)
 - [Adding flash messages](https://github.com/badosu/Yogurt/commit/8ef447eeb501e797e6f0d5ba22fcbfe1bed67ad0)
 - [Using JRuby](https://github.com/badosu/Yogurt/compare/jruby)
+- [Adding Remember Me functionality](https://github.com/badosu/Yogurt/wiki/Example:-Adding-Remember-Me-option)
