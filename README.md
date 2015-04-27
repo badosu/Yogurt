@@ -19,10 +19,7 @@ lightweightness.
 
 ### Disclaimer
 
-This application uses the latest MRI without concern for
-retrocompatibility or cross-implementation support.
-
-It uses Sqlite as default adapter but it's very easy to change, see
+Sqlite is used as default adapter, see
 [.env-sample](https://github.com/badosu/Yogurt/blob/master/.env-sample) and
 [opening_databases.rdoc](http://sequel.jeremyevans.net/rdoc/files/doc/opening_databases_rdoc.html).
 
@@ -43,6 +40,8 @@ and plugins, see:
 - [rack-contrib](https://github.com/rack/rack-contrib)
 
 Hopefully you'll find what you need there.
+
+Additional examples can be found on the examples section.
 
 Install
 -------
@@ -113,3 +112,4 @@ Examples
 
 - [Adding Authentication](https://github.com/badosu/Yogurt/wiki/Example:-Adding-authentication)
 - [Adding flash messages](https://github.com/badosu/Yogurt/commit/8ef447eeb501e797e6f0d5ba22fcbfe1bed67ad0)
+- [Using JRuby](https://github.com/badosu/Yogurt/compare/jruby)
