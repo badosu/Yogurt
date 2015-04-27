@@ -1,9 +1,7 @@
 source 'https://rubygems.org'
 
-ruby '2.2.1'
-
 gem 'roda'
-gem 'unicorn'
+gem 'puma'
 
 gem 'tilt'
 gem 'yuicompressor'
@@ -11,14 +9,11 @@ gem 'yuicompressor'
 gem 'sequel'
 
 gem 'rake'
-gem 'rack-unreloader'
 
 # gem 'sequel-pg', require: 'sequel'
-gem 'sqlite3'
+gem 'jdbc-sqlite3'
 
 gem 'pry', group: :development
-gem 'better_errors', group: :development
-gem 'binding_of_caller', group: :development
 
 # Roda: Routing Tree Web Framework Toolkit
 # => https://github.com/jeremyevans/roda

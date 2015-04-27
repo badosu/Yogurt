@@ -1,7 +1,6 @@
 require 'sequel'
 require 'logger'
 require './lib/env'
-require './config/unreloader'
 
 DB = Sequel.connect(ENV['DATABASE_URL']).tap do |config|
   config.loggers << Logger.new($stdout)
@@ -11,5 +10,4 @@ end
 Sequel::Model.raise_on_save_failure = false
 Sequel::Model.plugin :timestamps
 
-Unreloader.require('models'){}
-Unreloader.record_split_class(__FILE__, 'models')
+Dir.glob('models/*.rb') { |f| require_relative f }

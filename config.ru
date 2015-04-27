@@ -1,7 +1,6 @@
 require './lib/env'
-require './config/unreloader'
 
-Unreloader.require './models.rb'
-Unreloader.require './yogurt.rb'
+require './models.rb'
+require './yogurt.rb'
 
-run(env.development? ? Unreloader : Yogurt.freeze.app)
+run Yogurt.freeze.app

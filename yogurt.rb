@@ -17,11 +17,7 @@ class Yogurt < Roda
   plugin(:not_found) { view '/http_404' }
 
   if env.development?
-    require 'better_errors'
     require 'pry'
-
-    use BetterErrors::Middleware
-    BetterErrors.application_root = __dir__
   else
     compile_assets
 
@@ -45,5 +41,4 @@ class Yogurt < Roda
   end
 end
 
-Unreloader.require('routes'){}
-Unreloader.record_split_class(__FILE__, 'routes')
+Dir.glob('routes/*.rb') { |f| require_relative f }
