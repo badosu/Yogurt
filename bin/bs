@@ -1,7 +1,9 @@
 #!/bin/bash
 
-if [[ -f .env ]]; then
-  eval "$(awk '/^[A-Z]/ { print "export " $0 }' .env)"
+BS=${BS:-'.env'}
+
+if [[ -f $BS ]]; then
+  eval "$(awk '/^[A-Z]/ { print "export " $0 }' $BS)"
 
 
   if [[ $# -gt 0 ]]; then

@@ -96,6 +96,17 @@ locally (without `bundle exec` if you're using gst).
 
 Visit `/communities`.
 
+Testing
+-------
+
+Use the `.test.env` file to configure the testing environment.
+
+Migrate with: `BS=.test.env bin/bs bundle exec rake db:migrate`.
+
+Test with: `BS=.test.env bin/bs bundle exec rake test`.
+
+Individually: `BS=.test.env bin/bs ruby test/routes/communities_test.rb`.
+
 Structure
 ---------
 
@@ -106,6 +117,7 @@ Structure
 - **Assets**: `./assets`
 - **Views**: `./views`
 - **Migrations**: `./db/migrations`
+- **Tests**: `./db/tests`
 
 Examples
 --------

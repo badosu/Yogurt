@@ -4,7 +4,7 @@ require './lib/env'
 require './config/unreloader'
 
 DB = Sequel.connect(ENV['DATABASE_URL']).tap do |config|
-  config.loggers << Logger.new($stdout)
+  config.loggers << Logger.new($stdout) unless env.test?
 end
 
 # See: http://permalink.gmane.org/gmane.comp.lang.ruby.sequel/2118
